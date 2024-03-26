@@ -1,14 +1,17 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-class Operate{
+class Operate
+{
 public:
-void fun();
+    void fun();
 };
-void Operate::fun(){
-    cout<< " It is the member function of the class.";
+void Operate::fun()
+{
+    cout << " It is the member function of the class.";
 }
-int main(){
+int main()
+{
     Operate op;
     op.fun();
     return 0;
