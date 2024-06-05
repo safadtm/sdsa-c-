@@ -628,6 +628,333 @@ int main() {
             </code>
         </div>
     </div>
+ <div class="question">
+        <h2>21) Write a program to implement multilevel inheritance</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Base {
+    public:
+        void display() {
+            cout &lt;&lt; "Base class display function" &lt;&lt; endl;
+        }
+};
+
+class Intermediate : public Base {
+    public:
+        void show() {
+            cout &lt;&lt; "Intermediate class show function" &lt;&lt; endl;
+        }
+};
+
+class Derived : public Intermediate {
+    public:
+        void reveal() {
+            cout &lt;&lt; "Derived class reveal function" &lt;&lt; endl;
+        }
+};
+
+int main() {
+    Derived obj;
+    obj.display();
+    obj.show();
+    obj.reveal();
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>22) Write a program to implement multiple inheritance</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Base1 {
+    public:
+        void display() {
+            cout &lt;&lt; "Base1 class display function" &lt;&lt; endl;
+        }
+};
+
+class Base2 {
+    public:
+        void show() {
+            cout &lt;&lt; "Base2 class show function" &lt;&lt; endl;
+        }
+};
+
+class Derived : public Base1, public Base2 {
+    public:
+        void reveal() {
+            cout &lt;&lt; "Derived class reveal function" &lt;&lt; endl;
+        }
+};
+
+int main() {
+    Derived obj;
+    obj.display();
+    obj.show();
+    obj.reveal();
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>23) Write a program to implement Hybrid inheritance</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Base {
+    public:
+        void display() {
+            cout &lt;&lt; "Base class display function" &lt;&lt; endl;
+        }
+};
+
+class Derived1 : public Base {
+    public:
+        void show() {
+            cout &lt;&lt; "Derived1 class show function" &lt;&lt; endl;
+        }
+};
+
+class Derived2 : public Base {
+    public:
+        void reveal() {
+            cout &lt;&lt; "Derived2 class reveal function" &lt;&lt; endl;
+        }
+};
+
+class Hybrid : public Derived1, public Derived2 {
+    public:
+        void expose() {
+            cout &lt;&lt; "Hybrid class expose function" &lt;&lt; endl;
+        }
+};
+
+int main() {
+    Hybrid obj;
+    obj.Derived1::display(); // Ambiguity resolution
+    obj.show();
+    obj.reveal();
+    obj.expose();
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>24) Write a program to implement the concept of virtual base class</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Base {
+    public:
+        void display() {
+            cout &lt;&lt; "Base class display function" &lt;&lt; endl;
+        }
+};
+
+class Derived1 : virtual public Base {};
+
+class Derived2 : virtual public Base {};
+
+class Hybrid : public Derived1, public Derived2 {
+    public:
+        void expose() {
+            display();
+            cout &lt;&lt; "Hybrid class expose function" &lt;&lt; endl;
+        }
+};
+
+int main() {
+    Hybrid obj;
+    obj.expose();
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>25) Write a program to implement the concept in derived class</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Base {
+    public:
+        virtual void display() {
+            cout &lt;&lt; "Base class display function" &lt;&lt; endl;
+        }
+};
+
+class Derived : public Base {
+    public:
+        void display() override {
+            cout &lt;&lt; "Derived class display function" &lt;&lt; endl;
+        }
+};
+
+int main() {
+    Base *b;
+    Derived d;
+    b = &d;
+    b-&gt;display();
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>26) Write a program to implement pointer</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int var = 20;
+    int *ptr;
+    ptr = &var;
+
+    cout &lt;&lt; "Value of var: " &lt;&lt; var &lt;&lt; endl;
+    cout &lt;&lt; "Value of var using pointer: " &lt;&lt; *ptr &lt;&lt; endl;
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>27) Write a program to implement pointer to objects</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Demo {
+    public:
+        void display() {
+            cout &lt;&lt; "Display function of Demo class" &lt;&lt; endl;
+        }
+};
+
+int main() {
+    Demo obj;
+    Demo *ptr = &obj;
+    ptr-&gt;display();
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>28) Write a program to implement this pointer</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Demo {
+    private:
+        int value;
+    public:
+        Demo(int value) {
+            this-&gt;value = value;
+        }
+        void display() {
+            cout &lt;&lt; "Value is: " &lt;&lt; this-&gt;value &lt;&lt; endl;
+        }
+};
+
+int main() {
+    Demo obj(10);
+    obj.display();
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>29) Write a program to implement pointers to derived objects</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Base {
+    public:
+        virtual void display() {
+            cout &lt;&lt; "Display function of Base class" &lt;&lt; endl;
+        }
+};
+
+class Derived : public Base {
+    public:
+        void display() override {
+            cout &lt;&lt; "Display function of Derived class" &lt;&lt; endl;
+        }
+};
+
+int main() {
+    Base *b;
+    Derived d;
+    b = &d;
+    b-&gt;display();
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>30) Write a program to implement using virtual functions</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Base {
+    public:
+        virtual void display() {
+            cout &lt;&lt; "Display function of Base class" &lt;&lt; endl;
+        }
+};
+
+class Derived : public Base {
+    public:
+        void display() override {
+            cout &lt;&lt; "Display function of Derived class" &lt;&lt; endl;
+        }
+};
+
+int main() {
+    Base *b;
+    Derived d;
+    b = &d;
+    b-&gt;display();
+    return 0;
+}
+            </code>
+        </div>
+    </div>
 
 
 </body></html>
