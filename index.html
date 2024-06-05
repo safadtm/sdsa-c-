@@ -301,5 +301,333 @@ int main() {
             </code>
         </div>
     </div>
+     <div class="question">
+        <h2>10) Write a program to illustrate the use of the friend function</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class B;
+
+class A {
+    private:
+        int a;
+    public:
+        A(): a(0) {}
+        friend int add(A, B);
+};
+
+class B {
+    private:
+        int b;
+    public:
+        B(): b(0) {}
+        friend int add(A, B);
+};
+
+int add(A objA, B objB) {
+    return (objA.a + objB.b);
+}
+
+int main() {
+    A objA;
+    B objB;
+    cout &lt;&lt; "Sum: " &lt;&lt; add(objA, objB);
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>11) Write a program to implement a constructor</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Demo {
+    public:
+        Demo() {
+            cout &lt;&lt; "Constructor called" &lt;&lt; endl;
+        }
+};
+
+int main() {
+    Demo obj;
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>12) Write a program to implement a parametrized constructor</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Demo {
+    private:
+        int value;
+    public:
+        Demo(int x) {
+            value = x;
+            cout &lt;&lt; "Value is: " &lt;&lt; value &lt;&lt; endl;
+        }
+};
+
+int main() {
+    Demo obj(10);
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>13) Write a program to implement copy constructor</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Demo {
+    private:
+        int value;
+    public:
+        Demo(int x) {
+            value = x;
+        }
+        Demo(const Demo &obj) {
+            value = obj.value;
+        }
+        void display() {
+            cout &lt;&lt; "Value is: " &lt;&lt; value &lt;&lt; endl;
+        }
+};
+
+int main() {
+    Demo obj1(10);
+    Demo obj2 = obj1;
+    obj2.display();
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>14) Write a program to implement multiple constructors</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Demo {
+    private:
+        int value;
+    public:
+        Demo() {
+            value = 0;
+        }
+        Demo(int x) {
+            value = x;
+        }
+        void display() {
+            cout &lt;&lt; "Value is: " &lt;&lt; value &lt;&lt; endl;
+        }
+};
+
+int main() {
+    Demo obj1;
+    Demo obj2(20);
+    obj1.display();
+    obj2.display();
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>15) Write a program to implement Destructors</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Demo {
+    public:
+        Demo() {
+            cout &lt;&lt; "Constructor called" &lt;&lt; endl;
+        }
+        ~Demo() {
+            cout &lt;&lt; "Destructor called" &lt;&lt; endl;
+        }
+};
+
+int main() {
+    Demo obj;
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>16) Write a program to implement Overloading unary operator</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Demo {
+    private:
+        int value;
+    public:
+        Demo(int x): value(x) {}
+        void operator ++() {
+            value += 1;
+        }
+        void display() {
+            cout &lt;&lt; "Value is: " &lt;&lt; value &lt;&lt; endl;
+        }
+};
+
+int main() {
+    Demo obj(10);
+    ++obj;
+    obj.display();
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>17) Write a program to implement Overloading binary operator</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Demo {
+    private:
+        int value;
+    public:
+        Demo(int x): value(x) {}
+        Demo operator +(const Demo& obj) {
+            return Demo(value + obj.value);
+        }
+        void display() {
+            cout &lt;&lt; "Value is: " &lt;&lt; value &lt;&lt; endl;
+        }
+};
+
+int main() {
+    Demo obj1(10);
+    Demo obj2(20);
+    Demo obj3 = obj1 + obj2;
+    obj3.display();
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>18) Write a program to implement overloading operator using friends</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Demo {
+    private:
+        int value;
+    public:
+        Demo(int x): value(x) {}
+        friend Demo operator +(const Demo& obj1, const Demo& obj2);
+        void display() {
+            cout &lt;&lt; "Value is: " &lt;&lt; value &lt;&lt; endl;
+        }
+};
+
+Demo operator +(const Demo& obj1, const Demo& obj2) {
+    return Demo(obj1.value + obj2.value);
+}
+
+int main() {
+    Demo obj1(10);
+    Demo obj2(20);
+    Demo obj3 = obj1 + obj2;
+    obj3.display();
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>19) Write a program to implement type conversion in C++</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Demo {
+    private:
+        int value;
+    public:
+        Demo(int x): value(x) {}
+        operator int() {
+            return value;
+        }
+};
+
+int main() {
+    Demo obj(10);
+    int x = obj;
+    cout &lt;&lt; "Value is: " &lt;&lt; x &lt;&lt; endl;
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>20) Write a program to implement single inheritance</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Base {
+    public:
+        void display() {
+            cout &lt;&lt; "Base class display function" &lt;&lt; endl;
+        }
+};
+
+class Derived : public Base {
+    public:
+        void show() {
+            cout &lt;&lt; "Derived class show function" &lt;&lt; endl;
+        }
+};
+
+int main() {
+    Derived obj;
+    obj.display();
+    obj.show();
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
 
 </body></html>
