@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn C++ Programs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .answer {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <h1>C++ Programs for Learning</h1>
+
+    <div class="question">
+        <h2>1) Write a program to find the largest of three numbers using nested if else.</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int a, b, c;
+    cout &lt;&lt; "Enter three numbers: ";
+    cin &gt;&gt; a &gt;&gt; b &gt;&gt; c;
+
+    if (a &gt; b) {
+        if (a &gt; c)
+            cout &lt;&lt; "Largest: " &lt;&lt; a;
+        else
+            cout &lt;&lt; "Largest: " &lt;&lt; c;
+    } else {
+        if (b &gt; c)
+            cout &lt;&lt; "Largest: " &lt;&lt; b;
+        else
+            cout &lt;&lt; "Largest: " &lt;&lt; c;
+    }
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>2) Write a program to implement Arithmetic calculator using switch.</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    char op;
+    float num1, num2;
+
+    cout &lt;&lt; "Enter operator: +, -, *, /: ";
+    cin &gt;&gt; op;
+
+    cout &lt;&lt; "Enter two operands: ";
+    cin &gt;&gt; num1 &gt;&gt; num2;
+
+    switch(op) {
+        case '+':
+            cout &lt;&lt; num1 &lt;&lt; " + " &lt;&lt; num2 &lt;&lt; " = " &lt;&lt; num1 + num2;
+            break;
+        case '-':
+            cout &lt;&lt; num1 &lt;&lt; " - " &lt;&lt; num2 &lt;&lt; " = " &lt;&lt; num1 - num2;
+            break;
+        case '*':
+            cout &lt;&lt; num1 &lt;&lt; " * " &lt;&lt; num2 &lt;&lt; " = " &lt;&lt; num1 * num2;
+            break;
+        case '/':
+            if(num2 != 0)
+                cout &lt;&lt; num1 &lt;&lt; " / " &lt;&lt; num2 &lt;&lt; " = " &lt;&lt; num1 / num2;
+            else
+                cout &lt;&lt; "Division by zero!";
+            break;
+        default:
+            cout &lt;&lt; "Invalid operator";
+            break;
+    }
+
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>3) Write a program to calculate the factorial of a number using a function in C++.</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+int factorial(int n) {
+    if (n == 0)
+        return 1;
+    else
+        return n * factorial(n - 1);
+}
+
+int main() {
+    int num;
+    cout &lt;&lt; "Enter a number: ";
+    cin &gt;&gt; num;
+    cout &lt;&lt; "Factorial of " &lt;&lt; num &lt;&lt; " is " &lt;&lt; factorial(num);
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>4) Write a program to implement function overloading in C++.</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+int add(int a, int b) {
+    return a + b;
+}
+
+double add(double a, double b) {
+    return a + b;
+}
+
+int main() {
+    int x = 10, y = 20;
+    double m = 2.5, n = 3.5;
+
+    cout &lt;&lt; "Sum of integers: " &lt;&lt; add(x, y) &lt;&lt; endl;
+    cout &lt;&lt; "Sum of doubles: " &lt;&lt; add(m, n) &lt;&lt; endl;
+
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>5) Write a program to implement a class in C++.</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Person {
+    public:
+        string name;
+        int age;
+
+        void display() {
+            cout &lt;&lt; "Name: " &lt;&lt; name &lt;&lt; ", Age: " &lt;&lt; age &lt;&lt; endl;
+        }
+};
+
+int main() {
+    Person p1;
+    p1.name = "John";
+    p1.age = 30;
+    p1.display();
+
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>6) Write a program to implement scope resolution operator in C++.</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+int x = 10;
+
+int main() {
+    int x = 20;
+    cout &lt;&lt; "Local x: " &lt;&lt; x &lt;&lt; endl;
+    cout &lt;&lt; "Global x: " &lt;&lt; ::x &lt;&lt; endl;
+
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>7) Write a program to implement a class with arrays as data members.</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Array {
+    private:
+        int arr[5];
+    public:
+        void insert(int index, int value) {
+            if(index >= 0 && index &lt; 5)
+                arr[index] = value;
+        }
+
+        void display() {
+            for(int i = 0; i &lt; 5; i++)
+                cout &lt;&lt; arr[i] &lt;&lt; " ";
+            cout &lt;&lt; endl;
+        }
+};
+
+int main() {
+    Array a;
+    a.insert(0, 10);
+    a.insert(1, 20);
+    a.insert(2, 30);
+    a.insert(3, 40);
+    a.insert(4, 50);
+    a.display();
+
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>8) Write a program to implement the use of static data member.</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Counter {
+    public:
+        static int count;
+
+        Counter() {
+            count++;
+        }
+};
+
+int Counter::count = 0;
+
+int main() {
+    Counter c1, c2, c3;
+    cout &lt;&lt; "Count: " &lt;&lt; Counter::count &lt;&lt; endl;
+
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>9) Write a program to illustrate the use of object arrays.</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Student {
+    public:
+        string name;
+        int age;
+
+        void getData() {
+            cout &lt;&lt; "Enter name and age: ";
+            cin &gt;&gt; name &gt;&gt; age;
+        }
+
+        void display() {
+            cout &lt;&lt; "Name: " &lt;&lt; name &lt;&lt; ", Age: " &lt;&lt; age &lt;&lt; endl;
+        }
+};
+
+int main() {
+    Student students[3];
+
+    for(int i = 0; i &lt; 3; i++) {
+        students[i].getData();
+    }
+
+    for(int i = 0; i &lt; 3; i++) {
+        students[i].display();
+    }
+
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+     <div class="question">
+        <h2>10) Write a program to illustrate the use of the friend function</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class B;
+
+class A {
+    private:
+        int a;
+    public:
+        A(): a(0) {}
+        friend int add(A, B);
+};
+
+class B {
+    private:
+        int b;
+    public:
+        B(): b(0) {}
+        friend int add(A, B);
+};
+
+int add(A objA, B objB) {
+    return (objA.a + objB.b);
+}
+
+int main() {
+    A objA;
+    B objB;
+    cout &lt;&lt; "Sum: " &lt;&lt; add(objA, objB);
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>11) Write a program to implement a constructor</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Demo {
+    public:
+        Demo() {
+            cout &lt;&lt; "Constructor called" &lt;&lt; endl;
+        }
+};
+
+int main() {
+    Demo obj;
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>12) Write a program to implement a parametrized constructor</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Demo {
+    private:
+        int value;
+    public:
+        Demo(int x) {
+            value = x;
+            cout &lt;&lt; "Value is: " &lt;&lt; value &lt;&lt; endl;
+        }
+};
+
+int main() {
+    Demo obj(10);
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>13) Write a program to implement copy constructor</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Demo {
+    private:
+        int value;
+    public:
+        Demo(int x) {
+            value = x;
+        }
+        Demo(const Demo &obj) {
+            value = obj.value;
+        }
+        void display() {
+            cout &lt;&lt; "Value is: " &lt;&lt; value &lt;&lt; endl;
+        }
+};
+
+int main() {
+    Demo obj1(10);
+    Demo obj2 = obj1;
+    obj2.display();
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>14) Write a program to implement multiple constructors</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Demo {
+    private:
+        int value;
+    public:
+        Demo() {
+            value = 0;
+        }
+        Demo(int x) {
+            value = x;
+        }
+        void display() {
+            cout &lt;&lt; "Value is: " &lt;&lt; value &lt;&lt; endl;
+        }
+};
+
+int main() {
+    Demo obj1;
+    Demo obj2(20);
+    obj1.display();
+    obj2.display();
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>15) Write a program to implement Destructors</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Demo {
+    public:
+        Demo() {
+            cout &lt;&lt; "Constructor called" &lt;&lt; endl;
+        }
+        ~Demo() {
+            cout &lt;&lt; "Destructor called" &lt;&lt; endl;
+        }
+};
+
+int main() {
+    Demo obj;
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>16) Write a program to implement Overloading unary operator</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Demo {
+    private:
+        int value;
+    public:
+        Demo(int x): value(x) {}
+        void operator ++() {
+            value += 1;
+        }
+        void display() {
+            cout &lt;&lt; "Value is: " &lt;&lt; value &lt;&lt; endl;
+        }
+};
+
+int main() {
+    Demo obj(10);
+    ++obj;
+    obj.display();
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>17) Write a program to implement Overloading binary operator</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Demo {
+    private:
+        int value;
+    public:
+        Demo(int x): value(x) {}
+        Demo operator +(const Demo& obj) {
+            return Demo(value + obj.value);
+        }
+        void display() {
+            cout &lt;&lt; "Value is: " &lt;&lt; value &lt;&lt; endl;
+        }
+};
+
+int main() {
+    Demo obj1(10);
+    Demo obj2(20);
+    Demo obj3 = obj1 + obj2;
+    obj3.display();
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>18) Write a program to implement overloading operator using friends</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Demo {
+    private:
+        int value;
+    public:
+        Demo(int x): value(x) {}
+        friend Demo operator +(const Demo& obj1, const Demo& obj2);
+        void display() {
+            cout &lt;&lt; "Value is: " &lt;&lt; value &lt;&lt; endl;
+        }
+};
+
+Demo operator +(const Demo& obj1, const Demo& obj2) {
+    return Demo(obj1.value + obj2.value);
+}
+
+int main() {
+    Demo obj1(10);
+    Demo obj2(20);
+    Demo obj3 = obj1 + obj2;
+    obj3.display();
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>19) Write a program to implement type conversion in C++</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Demo {
+    private:
+        int value;
+    public:
+        Demo(int x): value(x) {}
+        operator int() {
+            return value;
+        }
+};
+
+int main() {
+    Demo obj(10);
+    int x = obj;
+    cout &lt;&lt; "Value is: " &lt;&lt; x &lt;&lt; endl;
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>20) Write a program to implement single inheritance</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Base {
+    public:
+        void display() {
+            cout &lt;&lt; "Base class display function" &lt;&lt; endl;
+        }
+};
+
+class Derived : public Base {
+    public:
+        void show() {
+            cout &lt;&lt; "Derived class show function" &lt;&lt; endl;
+        }
+};
+
+int main() {
+    Derived obj;
+    obj.display();
+    obj.show();
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+ <div class="question">
+        <h2>21) Write a program to implement multilevel inheritance</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Base {
+    public:
+        void display() {
+            cout &lt;&lt; "Base class display function" &lt;&lt; endl;
+        }
+};
+
+class Intermediate : public Base {
+    public:
+        void show() {
+            cout &lt;&lt; "Intermediate class show function" &lt;&lt; endl;
+        }
+};
+
+class Derived : public Intermediate {
+    public:
+        void reveal() {
+            cout &lt;&lt; "Derived class reveal function" &lt;&lt; endl;
+        }
+};
+
+int main() {
+    Derived obj;
+    obj.display();
+    obj.show();
+    obj.reveal();
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>22) Write a program to implement multiple inheritance</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Base1 {
+    public:
+        void display() {
+            cout &lt;&lt; "Base1 class display function" &lt;&lt; endl;
+        }
+};
+
+class Base2 {
+    public:
+        void show() {
+            cout &lt;&lt; "Base2 class show function" &lt;&lt; endl;
+        }
+};
+
+class Derived : public Base1, public Base2 {
+    public:
+        void reveal() {
+            cout &lt;&lt; "Derived class reveal function" &lt;&lt; endl;
+        }
+};
+
+int main() {
+    Derived obj;
+    obj.display();
+    obj.show();
+    obj.reveal();
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>23) Write a program to implement Hybrid inheritance</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Base {
+    public:
+        void display() {
+            cout &lt;&lt; "Base class display function" &lt;&lt; endl;
+        }
+};
+
+class Derived1 : public Base {
+    public:
+        void show() {
+            cout &lt;&lt; "Derived1 class show function" &lt;&lt; endl;
+        }
+};
+
+class Derived2 : public Base {
+    public:
+        void reveal() {
+            cout &lt;&lt; "Derived2 class reveal function" &lt;&lt; endl;
+        }
+};
+
+class Hybrid : public Derived1, public Derived2 {
+    public:
+        void expose() {
+            cout &lt;&lt; "Hybrid class expose function" &lt;&lt; endl;
+        }
+};
+
+int main() {
+    Hybrid obj;
+    obj.Derived1::display(); // Ambiguity resolution
+    obj.show();
+    obj.reveal();
+    obj.expose();
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>24) Write a program to implement the concept of virtual base class</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Base {
+    public:
+        void display() {
+            cout &lt;&lt; "Base class display function" &lt;&lt; endl;
+        }
+};
+
+class Derived1 : virtual public Base {};
+
+class Derived2 : virtual public Base {};
+
+class Hybrid : public Derived1, public Derived2 {
+    public:
+        void expose() {
+            display();
+            cout &lt;&lt; "Hybrid class expose function" &lt;&lt; endl;
+        }
+};
+
+int main() {
+    Hybrid obj;
+    obj.expose();
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>25) Write a program to implement the concept in derived class</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Base {
+    public:
+        virtual void display() {
+            cout &lt;&lt; "Base class display function" &lt;&lt; endl;
+        }
+};
+
+class Derived : public Base {
+    public:
+        void display() override {
+            cout &lt;&lt; "Derived class display function" &lt;&lt; endl;
+        }
+};
+
+int main() {
+    Base *b;
+    Derived d;
+    b = &d;
+    b-&gt;display();
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>26) Write a program to implement pointer</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int var = 20;
+    int *ptr;
+    ptr = &var;
+
+    cout &lt;&lt; "Value of var: " &lt;&lt; var &lt;&lt; endl;
+    cout &lt;&lt; "Value of var using pointer: " &lt;&lt; *ptr &lt;&lt; endl;
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>27) Write a program to implement pointer to objects</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Demo {
+    public:
+        void display() {
+            cout &lt;&lt; "Display function of Demo class" &lt;&lt; endl;
+        }
+};
+
+int main() {
+    Demo obj;
+    Demo *ptr = &obj;
+    ptr-&gt;display();
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>28) Write a program to implement this pointer</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Demo {
+    private:
+        int value;
+    public:
+        Demo(int value) {
+            this-&gt;value = value;
+        }
+        void display() {
+            cout &lt;&lt; "Value is: " &lt;&lt; this-&gt;value &lt;&lt; endl;
+        }
+};
+
+int main() {
+    Demo obj(10);
+    obj.display();
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>29) Write a program to implement pointers to derived objects</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Base {
+    public:
+        virtual void display() {
+            cout &lt;&lt; "Display function of Base class" &lt;&lt; endl;
+        }
+};
+
+class Derived : public Base {
+    public:
+        void display() override {
+            cout &lt;&lt; "Display function of Derived class" &lt;&lt; endl;
+        }
+};
+
+int main() {
+    Base *b;
+    Derived d;
+    b = &d;
+    b-&gt;display();
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>30) Write a program to implement using virtual functions</h2>
+        <div class="answer">
+            <code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Base {
+    public:
+        virtual void display() {
+            cout &lt;&lt; "Display function of Base class" &lt;&lt; endl;
+        }
+};
+
+class Derived : public Base {
+    public:
+        void display() override {
+            cout &lt;&lt; "Display function of Derived class" &lt;&lt; endl;
+        }
+};
+
+int main() {
+    Base *b;
+    Derived d;
+    b = &d;
+    b-&gt;display();
+    return 0;
+}
+            </code>
+        </div>
+    </div>
+
+
+</body></html>
