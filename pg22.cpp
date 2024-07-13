@@ -1,5 +1,5 @@
 #include<iostream>
-using namespce std;
+using namespace std;
 
 class Space{
 int x,y,z;
@@ -29,7 +29,7 @@ int main(){
     s.getdata(10,20,30);
     s.display();
     -s;
-    cout<<endl<<"After Overloading";
+    cout<<endl<<"After Overloading\n";
     s.display();
     return 0;
 }
